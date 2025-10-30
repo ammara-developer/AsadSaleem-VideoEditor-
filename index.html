@@ -1,0 +1,876 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ASAD SALEEM - Professional Video Editor Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <meta name="description" content="I'm a front-end developer...">
+<meta name="keywords" content="HTML, CSS, JS, Tailwind, Portfolio">
+<meta name="author" content="Your Name">
+
+    
+</head>
+
+<!-- Fullscreen Video Modal -->
+<div id="videoModal" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+  <button id="closeModal" class="absolute top-6 right-6 text-white text-3xl hover:text-gray-300">&times;</button>
+  <video id="modalVideo" controls autoplay class="max-w-4xl w-full rounded-lg shadow-lg"></video>
+</div>
+
+<body class="bg-black text-white">
+    <!-- Navbar -->
+    <!-- 🌐 Header Navigation -->
+<nav id="main-header" class="header-bg py-6 sticky top-0 z-50 w-full">
+  <div class="container-section flex justify-between items-center">
+    
+    <!-- 🔹 Logo -->
+    <div class="logo-container">
+      <div class="logo-name">ASAD SALEEM</div>
+      <div class="logo-title">VIDEO EDITOR</div>
+    </div>
+
+    <!-- 🖥️ Desktop Navigation -->
+    <ul class="hidden md:flex space-x-8 text-sm">
+      <li><a href="#home" class="nav-link">HOME</a></li>
+      <li><a href="#services" class="nav-link">SERVICES</a></li>
+      <li><a href="#skills" class="nav-link">SKILLS</a></li>
+      <li><a href="#portfolio" class="nav-link">PORTFOLIO</a></li>
+      <li><a href="#about" class="nav-link">ABOUT</a></li>
+      <li><a href="#testimonials" class="nav-link">TESTIMONIALS</a></li>
+      <li><a href="#contact" class="nav-link">CONTACT</a></li>
+    </ul>
+
+    <!-- 🍔 Mobile Hamburger Button -->
+    <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+      <i class="fa fa-bars text-white text-2xl"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- 📱 Mobile Menu (slide-in panel) -->
+<div id="mobile-menu" class="fixed top-0 right-[-100%] h-full w-3/4 max-w-xs bg-black z-50 md:hidden border-l border-white border-opacity-10 transition-all duration-500 ease-in-out overflow-y-auto">
+  <div class="flex justify-end p-6">
+    <button id="close-menu-button" class="focus:outline-none">
+      <i class="fa fa-times text-white text-2xl"></i>
+    </button>
+  </div>
+  <ul class="flex flex-col space-y-6 text-lg p-8">
+    <li><a href="#home" class="mobile-link">HOME</a></li>
+    <li><a href="#services" class="mobile-link">SERVICES</a></li>
+    <li><a href="#skills" class="mobile-link">SKILLS</a></li>
+    <li><a href="#portfolio" class="mobile-link">PORTFOLIO</a></li>
+    <li><a href="#about" class="mobile-link">ABOUT</a></li>
+    <li><a href="#testimonials" class="mobile-link">TESTIMONIALS</a></li>
+    <li><a href="#contact" class="mobile-link">CONTACT</a></li>
+  </ul>
+</div>
+
+<!-- 🌓 Optional: Overlay for dim background when menu opens -->
+<div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden">
+
+  
+</div>
+
+
+    <!-- Call to Action Marquee -->
+   <section class="text-marquee-section relative overflow-hidden py-4">
+  <div class="text-marquee-wrapper flex">
+    
+    <!-- Original content -->
+    <div id="text-marquee-original" class="text-marquee-content whitespace-nowrap flex">
+      <span class="text-xs md:text-sm font-space uppercase tracking-widest text-white px-8">
+        LET'S CREATE TOGETHER • 
+      </span>
+      <span class="text-xs md:text-sm font-space uppercase tracking-widest text-white px-8">
+        YOUR VISION, OUR CREATION • 
+      </span>
+      <span class="text-xs md:text-sm font-space uppercase tracking-widest text-white px-8">
+        DESIGN THAT INSPIRES • 
+      </span>
+      <span class="text-xs md:text-sm font-space uppercase tracking-widest text-white px-8">
+        TURNING IDEAS INTO IMPACT • 
+      </span>
+      <span class="text-xs md:text-sm font-space uppercase tracking-widest text-white px-8">
+        BUILDING BRANDS THAT STAND OUT • 
+      </span>
+      <span class="text-xs md:text-sm font-space uppercase tracking-widest text-white px-8">
+        CREATIVITY IN MOTION • 
+      </span>
+    </div>
+
+    <!-- Cloned dynamically by JS -->
+    <div id="text-marquee-clone" class="text-marquee-content whitespace-nowrap flex"></div>
+
+  </div>
+</section>
+
+    
+    
+
+    <!-- Hero Section -->
+    <!-- Hero Section with Marquee -->
+<section id="home" class="relative py-20 md:py-32 overflow-hidden bg-black">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="images/video3.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay (optional for darken effect) -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Content -->
+  <div
+    class="relative container-section flex flex-col items-start space-y-8 z-10 text-left"
+    data-aos="fade-up"
+  >
+    <h1
+      class="text-4xl md:text-6xl lg:text-7xl font-playfair font-medium max-w-2xl text-white leading-tight"
+    >
+      CRAFTING <span class="text-highlight">VISUAL</span> NARRATIVES THAT
+      CAPTIVATE AND INSPIRE
+    </h1>
+
+     <p class="text-lg md:text-xl max-w-xl text-gray-400">
+      Professional video editing services that transform your vision into
+      compelling visual stories.
+    </p> 
+
+   <div class="flex flex-col sm:flex-row gap-4">
+      <button
+        class="btn-showreel px-8 py-4 uppercase text-sm font-semibold tracking-widest"
+      >
+        <i class="fas fa-play mr-2"></i> WATCH SHOWREEL
+      </button>
+      <a
+        href="#contact"
+        class="btn-inquiry px-8 py-4 uppercase text-sm font-semibold tracking-widest text-center"
+      >
+        START A PROJECT
+      </a> 
+    </div>
+  </div>
+
+
+  
+
+  <!-- 🔥 Integrated Work Showcase Marquee -->
+  <div class="relative z-10 mt-16">
+    <div class="marquee-container-boxes">
+      <!-- Original Row -->
+      <div class="marquee-boxes-row" id="marquee-content-original">
+        <!-- Video 1 -->
+       <div class="video-card relative w-80 h-48 overflow-hidden group" data-video="6D63LmU544Y">
+  <!-- Poster -->
+  <div class="poster absolute inset-0 z-10 transition-opacity duration-300">
+    <img src="images/talking-head.jpg" alt="AR Brandon Video Poster" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- YouTube Iframe -->
+  <iframe
+    class="youtube-iframe w-full h-full object-cover"
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/6D63LmU544Y?enablejsapi=1&mute=1&rel=0&modestbranding=1&controls=0&list=PLQhU-CdBeWjqXj7aS3naf4Ksl3evxH8G1"
+    title="AR Brandon Video #06 4K"
+    frameborder="0"
+    allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+
+  <!-- Sound Toggle -->
+  <button class="sound-toggle absolute bottom-3 left-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-volume-mute"></i>
+  </button>
+
+  <!-- Heading -->
+  <div class="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-3 py-1 text-xs uppercase tracking-widest pointer-events-none z-[4]">
+    TALKING-HEAD VIDEO
+  </div>
+
+  <!-- Fullscreen Button -->
+  <button class="fullscreen-btn absolute bottom-3 right-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-expand"></i>
+  </button>
+</div>
+
+        <!-- Video 2 -->
+        
+        <!-- Video 3 -->
+<div class="video-card relative w-80 h-48 overflow-hidden group" data-video="Ol6lj7PlepE">
+  <!-- Poster -->
+  <div class="poster absolute inset-0 z-10 transition-opacity duration-300">
+    <img src="images/realstate.jpg" alt="Real Estate Poster" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- YouTube Iframe (fixed) -->
+  <iframe
+    class="youtube-iframe w-full h-full object-cover"
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/Ol6lj7PlepE?enablejsapi=1&mute=1&rel=0&modestbranding=1&controls=0&list=PLQhU-CdBeWjpVlLKG-HJGQTZNzSdwc8i6"
+    title="RE3 Aramnashat 22072025"
+    frameborder="0"
+    allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+  <button class="sound-toggle absolute bottom-3 left-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+  <i class="fas fa-volume-mute"></i>
+</button>
+
+
+  <!-- Heading -->
+  <div class="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-3 py-1 text-xs uppercase tracking-widest pointer-events-none z-[4]">
+    REAL STATE
+  </div>
+
+  <!-- Fullscreen Button -->
+  <button class="fullscreen-btn absolute bottom-3 right-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-expand"></i>
+  </button>
+</div>
+
+
+
+
+
+
+        <!-- Video 4 -->
+         <div class="video-card relative w-80 h-48 overflow-hidden group" data-video="Ol6lj7PlepE">
+  <!-- Poster -->
+  <div class="poster absolute inset-0 z-10 transition-opacity duration-300">
+    <img src="images/podcast.jpeg" alt="Real Estate Poster" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- YouTube Iframe (fixed) -->
+  <iframe
+  class="youtube-iframe w-full h-full object-cover"
+  width="640"
+  height="360"
+  src="https://www.youtube.com/embed/rzOpFKBygAw?enablejsapi=1&mute=1&rel=0&modestbranding=1&controls=0&playsinline=1"
+  title="Benton McClintock | Sexuality, Content Creation & Writing the Next Chapter"
+  frameborder="0"
+  allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+
+
+  <button class="sound-toggle absolute bottom-3 left-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+  <i class="fas fa-volume-mute"></i>
+</button>
+
+
+  <!-- Heading -->
+  <div class="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-3 py-1 text-xs uppercase tracking-widest pointer-events-none z-[4]">
+    Podcast
+  </div>
+
+  <!-- Fullscreen Button -->
+  <button class="fullscreen-btn absolute bottom-3 right-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-expand"></i>
+  </button>
+</div>
+    
+
+
+        <!-- Video 5 -->
+       <div class="video-card relative w-80 h-48 overflow-hidden group" data-video="RffMtROZP-w">
+  <!-- Poster -->
+  <div class="poster absolute inset-0 z-10 transition-opacity duration-300">
+    <img src="images/advertisment (2).jpeg" alt="Sample Poster" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- YouTube Iframe -->
+  <iframe
+    class="youtube-iframe w-full h-full object-cover"
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/RffMtROZP-w?enablejsapi=1&mute=1&rel=0&modestbranding=1&controls=0"
+    title="Second Video"
+    frameborder="0"
+    allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+
+  <!-- Sound Toggle -->
+  <button class="sound-toggle absolute bottom-3 left-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-volume-mute"></i>
+  </button>
+
+  <!-- Heading -->
+  <div class="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-3 py-1 text-xs uppercase tracking-widest pointer-events-none z-[4]">
+    VLOGS
+  </div>
+
+  <!-- Fullscreen Button -->
+  <button class="fullscreen-btn absolute bottom-3 right-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-expand"></i>
+  </button>
+</div>
+
+
+
+
+
+<div class="video-card relative w-80 h-48 overflow-hidden group" data-video="8ggz9tSugzo">
+  <!-- Poster -->
+  <div class="poster absolute inset-0 z-10 transition-opacity duration-300">
+    <img src="images/daily-routine.jpg" alt="Gym Routine Poster" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- YouTube Iframe -->
+  <iframe
+    class="youtube-iframe w-full h-full object-cover"
+    width="640"
+    height="360"
+    src="https://www.youtube.com/embed/8ggz9tSugzo?enablejsapi=1&mute=1&rel=0&modestbranding=1&controls=0&list=PLQhU-CdBeWjqC7SNe9A_F4X9PUd8kzvIl"
+    title="MY MORNING GYM ROUTINE"
+    frameborder="0"
+    allow="autoplay; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+
+  <!-- Sound Toggle -->
+  <button class="sound-toggle absolute bottom-3 left-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-volume-mute"></i>
+  </button>
+
+  <!-- Heading -->
+  <div class="absolute top-3 left-3 bg-black bg-opacity-70 text-white px-3 py-1 text-xs uppercase tracking-widest pointer-events-none z-[4]">
+    GYM ROUTINE
+  </div>
+
+  <!-- Fullscreen Button -->
+  <button class="fullscreen-btn absolute bottom-3 right-3 bg-black bg-opacity-70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+    <i class="fas fa-expand"></i>
+  </button>
+</div>
+
+
+      </div>
+
+      <!-- Cloned Row for Seamless Loop -->
+      <div class="marquee-boxes-row" id="marquee-content-clone"></div>
+    </div>
+  </div>
+
+  
+</section>
+
+<!-- ✅ Add Marquee JS (below body or in main.js) -->
+
+    
+    </form>
+
+    <!-- Stats Section -->
+ <section class="py-16 bg-black text-white">
+  <div class="container-section">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
+      <!-- Item 1 -->
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex justify-center mb-3">
+          <i data-lucide="briefcase" class="w-8 h-8 text-blue-500"></i>
+        </div>
+        <div class="stat-number text-3xl font-bold" data-count="150">0</div>
+        <p class="text-gray-400 text-sm tracking-widest uppercase mt-2">
+          Projects Completed
+        </p>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex justify-center mb-3">
+          <i data-lucide="smile" class="w-8 h-8 text-green-500"></i>
+        </div>
+        <div class="stat-number text-3xl font-bold" data-count="50">0</div>
+        <p class="text-gray-400 text-sm tracking-widest uppercase mt-2">
+          Satisfied Clients
+        </p>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex justify-center mb-3">
+          <i data-lucide="clock" class="w-8 h-8 text-yellow-500"></i>
+        </div>
+        <div class="stat-number text-3xl font-bold" data-count="5">0</div>
+        <p class="text-gray-400 text-sm tracking-widest uppercase mt-2">
+          Years Experience
+        </p>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+        <div class="flex justify-center mb-3">
+          <i data-lucide="award" class="w-8 h-8 text-purple-500"></i>
+        </div>
+        <div class="stat-number text-3xl font-bold" data-count="12">0</div>
+        <p class="text-gray-400 text-sm tracking-widest uppercase mt-2">
+          Awards Won
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ✅ Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+
+
+ <!-- Services Section -->
+    <section id="services" class="py-20 md:py-32 bg-black">
+  <div class="container-section">
+    
+    <!-- 🌈 Section Heading -->
+    <h2 class="section-heading" data-aos="fade-up">
+      SERVICES
+    </h2>
+
+    <!-- 💬 Section Tagline -->
+    <p class="section-tagline" data-aos="fade-up" data-aos-delay="100">
+      Professional video editing services tailored to bring your vision to life.
+    </p>
+
+    <!-- 🧩 Services Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      
+      <!-- 🎬 Service Card 1 -->
+      <div class="service-card p-8" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-white mb-6">
+          <i class="fas fa-film text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-4">CINEMATIC EDITING</h3>
+        <p class="text-gray-500">
+          Top-tier post-production and story-driven narrative for professional showreels.
+        </p>
+      </div>
+
+      <!-- 💼 Service Card 2 -->
+      <div class="service-card p-8" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-white mb-6">
+          <i class="fas fa-briefcase text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-4">CORPORATE & BRANDED</h3>
+        <p class="text-gray-500">
+          Professional cutting, pacing, and flow to create a seamless final product.
+        </p>
+      </div>
+
+      <!-- 📱 Service Card 3 -->
+      <div class="service-card p-8" data-aos="fade-up" data-aos-delay="300">
+        <div class="text-white mb-6">
+          <i class="fas fa-share-alt text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-4">SOCIAL MEDIA CONTENT</h3>
+        <p class="text-gray-500">
+          Crafting compelling social media campaigns to increase engagement.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Skills Section -->
+   <section id="skills" class="py-20 md:py-32 bg-black">
+  <div class="container-section text-center">
+    <!-- Heading -->
+   <h2 class="section-heading text-4xl md:text-6xl font-playfair mb-6" data-aos="fade-up">
+  SKILLS & EXPERTISE
+</h2>
+
+    <p class="section-tagline" data-aos="fade-up" data-aos-delay="100">
+      Technical proficiency and creative expertise to deliver exceptional results.
+    </p>
+
+    <!-- Skills Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 text-left">
+      <!-- Left: Technical Proficiency -->
+      <div data-aos="fade-right">
+        <h3 class="skill-subtitle">TECHNICAL PROFICIENCY</h3>
+        <div class="space-y-6">
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span>Adobe Premiere Pro</span><span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="95"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span>After Effects</span><span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="90"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span>DaVinci Resolve</span><span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="85"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="flex justify-between mb-1">
+              <span>Final Cut Pro</span><span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-width="80"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Creative Expertise -->
+      <div data-aos="fade-left">
+        <h3 class="skill-subtitle">CREATIVE EXPERTISE</h3>
+        <div data-aos="fade-left" class="flex flex-col items-center md:items-start pl-8 md:pl-12">
+ 
+  <div class="space-y-4 flex flex-col items-center w-full md:w-auto md:ml-10">
+
+    <div class="skill-tag"><i class="fas fa-check"></i> Color Grading & Correction</div>
+    <div class="skill-tag"><i class="fas fa-check"></i> Motion Graphics & Animation</div>
+    <div class="skill-tag"><i class="fas fa-check"></i> Sound Design & Mixing</div>
+    <div class="skill-tag"><i class="fas fa-check"></i> Visual Effects (VFX)</div>
+    <div class="skill-tag"><i class="fas fa-check"></i> Storyboarding & Scripting</div>
+  </div>
+
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- About Section -->
+ <section id="about" class="py-20 md:py-32 bg-black">
+  <div class="container-section grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+    <!-- LEFT SIDE: TEXT -->
+    <div class="text-left" data-aos="fade-right">
+       <h2 class="about-heading text-3xl md:text-5xl font-playfair mb-6">
+        ABOUT ME
+      </h2>
+      <p class="text-gray-400 mb-4">
+        With over 5 years of experience in video editing and post-production, I specialize in
+        transforming raw footage into compelling visual narratives. My passion lies in creating
+        content that not only looks stunning but also tells a story that resonates with audiences.
+      </p>
+      <p class="text-gray-400 mb-6">
+        I've worked with a diverse range of clients, from independent filmmakers to global brands,
+        delivering high-quality video content across various platforms and formats.
+      </p>
+      <div class="about-buttons shifted flex space-x-4 mt-6">
+  <a
+    href="#contact"
+    class="btn-inquiry px-6 py-3 font-semibold text-sm uppercase tracking-widest"
+  >
+    Get in Touch
+  </a>
+
+  <a
+    href="#"
+    class="download-btn px-6 py-3 font-semibold text-sm uppercase tracking-widest"
+  >
+    Download CV
+  </a>
+</div>
+
+    </div>
+
+    <!-- RIGHT SIDE: CIRCULAR FLIP IMAGE -->
+    <div class="flex justify-center md:justify-end" data-aos="fade-left">
+      <div class="circle-flip-card">
+        <div class="circle-inner">
+          <!-- Front Side -->
+          <div class="front">
+            <img src="images/asad.jpg" alt="Asad Saleem">
+          </div>
+          <!-- Back Side -->
+          <div class="back">
+            <h3>Asad Saleem</h3>
+            <p class="left">Video Editor</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+    <!-- Portfolio Section -->
+   <section id="portfolio" class="py-20 md:py-32 bg-black">
+  <div class="container-section text-center">
+
+    <!-- 🌈 Section Heading -->
+    <h2 class="section-heading" data-aos="fade-up">
+      PORTFOLIO
+    </h2>
+
+    <!-- 💬 Tagline -->
+    <p class="section-tagline" data-aos="fade-up" data-aos-delay="100">
+      A showcase of my best work across various genres and styles.
+    </p>
+
+    <!-- 🎛️ Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="150">
+      <button class="portfolio-filter active" data-filter="all">
+        <i class="fas fa-layer-group mr-2"></i> ALL
+      </button>
+      <button class="portfolio-filter" data-filter="wedding">
+        <i class="fas fa-ring mr-2"></i> WEDDING
+      </button>
+      <button class="portfolio-filter" data-filter="commercial">
+        <i class="fas fa-briefcase mr-2"></i> COMMERCIAL
+      </button>
+      <button class="portfolio-filter" data-filter="music">
+        <i class="fas fa-music mr-2"></i> MUSIC VIDEO
+      </button>
+      <button class="portfolio-filter" data-filter="documentary">
+        <i class="fas fa-film mr-2"></i> DOCUMENTARY
+      </button>
+    </div>
+
+    <!-- 🧩 Portfolio Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 portfolio-grid">
+
+      <!-- 🎥 Wedding -->
+      <div class="project-card portfolio-item" data-category="wedding">
+        <div class="relative overflow-hidden group rounded-xl">
+          <video class="w-full h-auto transition-transform duration-500 group-hover:scale-110" autoplay muted loop playsinline>
+            <source src="videos/covervideo.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+            <button class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 play-btn" data-video="videos/wedding-reel.mp4">
+              <i class="fas fa-play text-3xl"></i>
+            </button>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold mb-2">Elegant Wedding Highlights</h3>
+          <p class="text-sm text-gray-500">Wedding Reel</p>
+        </div>
+      </div>
+
+      <!-- 💼 Commercial -->
+      <div class="project-card portfolio-item" data-category="commercial">
+        <div class="relative overflow-hidden group rounded-xl">
+          <video class="w-full h-auto transition-transform duration-500 group-hover:scale-110" autoplay muted loop playsinline>
+            <source src="videos/'Short form content'.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+            <button class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 play-btn" data-video="videos/commercial-launch.mp4">
+              <i class="fas fa-play text-3xl"></i>
+            </button>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold mb-2">Tech Product Launch</h3>
+          <p class="text-sm text-gray-500">Commercial</p>
+        </div>
+      </div>
+
+      <!-- 🎶 Music -->
+      <div class="project-card portfolio-item" data-category="music">
+        <div class="relative overflow-hidden group rounded-xl">
+          <video class="w-full h-auto transition-transform duration-500 group-hover:scale-110" autoplay muted loop playsinline>
+            <source src="videos/covervideo.mp4" type="video/mp4">
+          </video>
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
+            <button class="text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 play-btn" data-video="videos/music-video.mp4">
+              <i class="fas fa-play text-3xl"></i>
+            </button>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-lg font-semibold mb-2">Indie Band Music Video</h3>
+          <p class="text-sm text-gray-500">Music Video</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 md:py-32 bg-black">
+        <div class="container-section">
+          <h2 class="section-heading" data-aos="fade-up">
+      TESTIMONIALS
+    </h2>
+            <p class="text-gray-500 mb-12 max-w-2xl" data-aos="fade-up" data-aos-delay="100">
+                What clients say about working with me.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="testimonial-card p-8" data-aos="fade-up">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">David Chin</h4>
+                            <p class="text-sm text-gray-500">CEO, Creative Productions</p>
+                        </div>
+                    </div>
+                    <p class="text-lg mb-6">
+                        "ASAD transformed our documentary with his innovative approach and attention to detail. The final product exceeded our expectations."
+                    </p>
+                    <div class="text-white">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gray-800 mr-4"></div>
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-500">Marketing Director, BrandVision</p>
+                        </div>
+                    </div>
+                    <p class="text-lg mb-6">
+                        "Working with ASAD was a game-changer for our social media campaigns. His edits increased our engagement by over 200%."
+                    </p>
+                    <div class="text-white">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+      <section id="contact" class="py-20 md:py-32 bg-black">
+  <div class="container-section flex flex-col md:flex-row justify-between items-start gap-12">
+    
+    <!-- Left side info -->
+    <div class="md:w-1/2">
+      <h2 class="text-3xl md:text-5xl font-playfair mb-6">
+        LET'S CREATE <span class="text-highlight">TOGETHER</span>
+      </h2>
+      <p class="text-gray-500 mb-8 max-w-md">
+        Ready to bring your vision to life? Get in touch to discuss your project and how we can work together to create something extraordinary.
+      </p>
+      <div class="space-y-4 mb-8">
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-envelope text-white text-xl"></i>
+          <span>asadsaleem422a@gmail.com</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-phone text-white text-xl"></i>
+          <span>+1 (555) 123-4567</span>
+        </div>
+        <div class="flex items-center space-x-3">
+          <i class="fas fa-map-marker-alt text-white text-xl"></i>
+          <span>New York, NY</span>
+        </div>
+      </div>
+      <div class="flex space-x-4">
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-vimeo-v"></i></a>
+      </div>
+    </div>
+
+    <!-- Right side contact form -->
+    <div class="md:w-1/2 w-full">
+  
+
+<form id="contact-form">
+  <!-- Name & Email -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input type="text" id="name" name="name" placeholder="YOUR NAME" class="input-field" required>
+    </div>
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input type="email" id="email" name="email" placeholder="YOUR EMAIL" class="input-field" required>
+    </div>
+  </div>
+<!-- Subject -->
+<div class="input-group mt-4">
+  <i class="fas fa-pen"></i>
+  <input type="text" id="subject" name="subject" placeholder="SUBJECT" class="input-field" required>
+</div>
+<!-- Message -->
+<div class="input-group mt-4">
+  <i class="fas fa-comment-dots"></i>
+  <textarea id="message" name="message" placeholder="YOUR MESSAGE" class="input-field" required></textarea>
+</div>
+<div class="flex justify-between items-center">
+          <button type="submit" class="btn-inquiry px-8 py-4 uppercase text-sm font-semibold tracking-widest" id="submit-btn">
+            <span id="btn-text">SEND MESSAGE</span>
+          </button>
+        </div>
+
+        <div id="form-message" class="form-message"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<a href="https://wa.me/923342557280" 
+   class="whatsapp-float" 
+   target="_blank" 
+   title="Chat with me on WhatsApp">
+   <i class="fab fa-whatsapp"></i>
+   <span>Chat with me</span>
+</a>
+ <!-- Footer --> <footer class="py-8 bg-black border-t border-white border-opacity-5">
+        <div class="container-section flex flex-col sm:flex-row justify-between items-center text-sm">
+            <p class="text-gray-500">&copy; 2024 ASAD SALEEM. ALL RIGHTS RESERVED.</p>
+            <div class="logo-container mt-4 sm:mt-0">
+                <div class="logo-name" style="font-size: 1.25rem;">ASAD SALEEM</div>
+                <div class="logo-title" style="font-size: 0.6rem;">VIDEO EDITOR</div>
+            </div>
+        </div>
+    </footer>
+
+       <!-- all script links -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="js/counter.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
